@@ -14,4 +14,14 @@ router.get('/shows', function(req, res, next) {
   });
 });
 
+router.get('/shows/:id', function(req, res, next) {
+  queries.getSingle(1)
+  .then((show) => {
+    res.status(200).json(show);
+  })
+  .catch((error) => {
+    next(error);
+  });
+})
+
 module.exports = router;
